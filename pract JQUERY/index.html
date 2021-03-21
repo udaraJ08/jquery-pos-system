@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/animation.css">
+
+    <!-- fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="./js/bootstrap.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <nav id="navID" class="navbar navbar-light">
+      <div class="container-fluid text-white">
+        <a class="navbar-brand text-white" style="font-size: 30px;font-family: 'Staatliches', cursive;color: #e74c3c;letter-spacing: 5px;"
+          >Zkoop_Mart</a
+        >
+        <div class="nav-data">
+          <a id="home" class="m-1" style="font-size: 20px; cursor: pointer"
+            >Home</a
+          >
+          <a id="customer" class="m-1" style="font-size: 20px; cursor: pointer"
+            >Customer</a
+          >
+          <a id="item" class="m-1" style="font-size: 20px; cursor: pointer"
+            >Item</a
+          >
+          <a
+            id="placeOrder"
+            class="m-1"
+            style="font-size: 20px; cursor: pointer"
+            >Place Order</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="main-container">
+      <div id="dashboard" class="dashboard-container">
+        <section class="dasboard-mid-container d-flex flex-column justify-content-center align-items-center">
+          <section class="dash-topic-sec d-flex flex-column justify-content-between w-50">
+            <h1 id="main-mid-topic" style="font-size: 100px;font-family: 'Staatliches', cursive;color: #e74c3c;">Zkoop_Mart</h1>
+            <h3 id="main-mid-subTopic" style="font-family: 'Jomhuria', cursive;color: #2c3e50;letter-spacing: 0.5rem;">We sell happiness !</h3>
+          </section>
+          <section class="d-flex flex-row h-25 w-50 justify-content-center align-items-center border-bottom">
+            <section class="d-flex justify-content-center align-items-center"><img id="customerIMG" src="./assets/customer.png" width="25%"></section>
+            <section class="d-flex justify-content-center align-items-center"><img id="itemIMG" src="./assets/shopping-bag.png" width="25%"></section>
+            <section class="d-flex justify-content-center align-items-center"><img id="orderIMG" src="./assets/order.png" width="25%"></section>
+          </section>
+        </section>
+      </div>
+      <div id="custPn" class="customer-container">
+        <section class="customer-form-container d-flex justify-content-center align-items-center" class="form-section w-25">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                class="form-control border-primary"
+                id="exampleInputEmail1"
+                name="name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Date of Birth(DOB)</label
+              >
+              <input
+                type="date"
+                class="form-control border-primary"
+                name="age"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Current Address</label
+              >
+              <input
+                type="text"
+                class="form-control border-primary"
+                name="address"
+              />
+            </div>
+            <div
+              class="btn-group w-100"
+              role="group"
+              aria-label="Basic example"
+            >
+              <button
+                id="btnCustomerSave"
+                type="button"
+                class="btn btn-primary"
+              >
+                ADD
+              </button>
+              <button
+                id="btnCustomerDelete"
+                type="button"
+                class="btn btn-danger"
+              >
+                DELETE
+              </button>
+              <button
+                id="btnCustomerUpdate"
+                type="button"
+                class="btn btn-success"
+              >
+                UPDATE
+              </button>
+              <button
+                id="btnCustomerClearAll"
+                type="button"
+                class="btn btn-dark"
+              >
+                CLEAR ALL
+              </button>
+            </div>
+          </form>
+        </section>
+        <section class="customer-table-container d-flex justify-content-center">
+          <section class="customer-table w-100 h-75 table-bordered overflow-auto">
+          <table
+            class="table table-striped table-hover table-bordered table-dark"
+            style="cursor: pointer"
+          >
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody id="tblCustomer"></tbody>
+          </table>
+        </section>
+      </div>
+        </section>
+      <div id="custPn" class="item-container">
+       <section class="customer-form-container d-flex justify-content-center align-items-center">
+          <section class="form-section w-50">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Item ID</label>
+              <input
+                type="text"
+                class="form-control border-primary"
+                id="exampleInputEmail1"
+                name="itemID"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Item Name</label
+              >
+              <input
+                type="text"
+                class="form-control border-primary"
+                name="itemName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">QTY</label>
+              <input
+                type="number"
+                class="form-control border-primary"
+                name="QTY"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Unit Price</label
+              >
+              <input
+                type="number"
+                class="form-control border-primary"
+                name="untPrice"
+              />
+            </div>
+            <div
+              class="btn-group w-100"
+              role="group"
+              aria-label="Basic example"
+            >
+              <button id="btnItemSave" type="button" class="btn btn-primary">
+                ADD
+              </button>
+              <button id="btnItemDelete" type="button" class="btn btn-danger">
+                DELETE
+              </button>
+              <button id="btnItemUpdate" type="button" class="btn btn-success">
+                UPDATE
+              </button>
+              <button id="btnItemClear" type="button" class="btn btn-dark">
+                CLEAR ALL
+              </button>
+            </div>
+          </form>
+        </section>
+       </section>
+        <section class="customer-table-container">
+          <section class="customer-table w-100 h-75 table-bordered overflow-auto">
+          <table
+            class="table table-striped table-hover table-bordered table-dark"
+            style="cursor: pointer"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">QTY</th>
+                <th scope="col">Unit Price</th>
+              </tr>
+            </thead>
+            <tbody id="tblitem">
+              <tr></tr>
+            </tbody>
+          </table>
+        </section>
+        </section>
+      </div>
+      <div class="order-container">
+        <div
+          class="left-order-container d-flex justify-content-center align-items-center"
+        >
+          <form style="width: 70%">
+            <div class="mb-3 text-primary">
+              <h3 id="todayDate">2021-03-12</h3>
+            </div>
+            <div class="mb-3 w-25">
+              <label for="exampleInputEmail1" class="form-label"
+                >customer ID</label
+              >
+              <input
+                type="text"
+                class="form-control border-primary"
+                id="exampleInputEmail1"
+                name="orderCustomerID"
+              />
+            </div>
+            <section class="d-flex justify-content-between">
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Item Code</label
+                >
+                <input
+                  type="text"
+                  class="form-control border-primary"
+                  name="orderItemCode"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Item Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control border-primary"
+                  name="orderItemName"
+                />
+              </div>
+            </section>
+            <section class="d-flex justify-content-between">
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >QTY</label
+                >
+                <input
+                  type="number"
+                  class="form-control border-primary"
+                  name="orderItemQTY"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Unit Price</label
+                >
+                <input
+                  type="number"
+                  class="form-control border-primary"
+                  name="orderUnitPrice"
+                />
+              </div>
+            </section>
+            <div
+              class="btn-group w-100 mt-5"
+              role="group"
+              aria-label="Basic example"
+            >
+              <button id="btnOrderSave" type="button" class="btn btn-primary">
+                ADD
+              </button>
+              <button id="btnOrderDelete" type="button" class="btn btn-danger">
+                DELETE
+              </button>
+              <button id="btnOrderUpdate" type="button" class="btn btn-success">
+                UPDATE
+              </button>
+              <button id="btnOrderClearAll" type="button" class="btn btn-dark">
+                CLEAR ALL
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="right-order-container">
+          <section class="order-right-upper-container overflow-auto">
+            <table
+              class="table table-striped table-hover table-bordered table-dark"
+              style="cursor: pointer"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Customer ID</th>
+                  <th scope="col">Item Code</th>
+                  <th scope="col">Item Name</th>
+                  <th scope="col">QTY</th>
+                  <th scope="col">Unit Price</th>
+                </tr>
+              </thead>
+              <tbody id="tblOrder">
+              </tbody>
+            </table>
+          </section>
+          <section class="order-right-lower-container">
+            <section class="order-rl-upper-container w-100 h-75 d-flex">
+              <section class="order-rl-upper-left-container w-50 h-100">
+                <section
+                  class="h-100 d-flex justify-content-around align-items-center flex-column"
+                >
+                  <section class="d-flex flex-column justify-content-center align-items-start">
+                    <label for="exampleInputPassword1" class="form-label"
+                    >Cash</label
+                  >
+                  <input
+                  id="inptCash"
+                    type="number"
+                    class="form-control border-primary w-100"
+                    name="orderCash"
+                  />
+                  </section>
+                  <section class="d-flex flex-column align-items-baseline justify-content-between mt-3" style="width: 50%;">
+                    <h6 class="text-dark" style="letter-spacing: 2px;">discount</h5>
+                   <h4 class="text-dark"><span id="orderDiscount">00.00</span> Rs.</h2>
+                  </section>
+                </section>
+              </section>
+              <section
+                class="order-rl-upper-right-container h-100 d-flex flex-column justify-content-around"
+              >
+                <section class="d-flex flex-baseline align-items-baseline justify-content-between">
+                  <h6 class="text-primary" style="letter-spacing: 2px;">Total</h5>
+                  <h3 class="text-primary"><span id="orderTotal">00.00</span> Rs.</h2>
+                </section>
+                <section class="d-flex flex-baseline align-items-baseline justify-content-between">
+                  <h6 class="text-danger" style="letter-spacing: 2px;">Sub-Total</h5>
+                  <h3 class="text-danger"><span id="orderSubTotal">00.00</span> Rs.</h2>
+                </section>
+                <section class="d-flex flex-baseline align-items-baseline justify-content-between">
+                  <h6 class="text-success" style="letter-spacing: 2px;">Balance</h5>
+                  <h3 class="text-success"><span id="orderBalance">00.00</span> Rs.</h2>
+                </section>
+              </section>
+            </section>
+            <section
+              class="order-rl-lower-container d-flex justify-content-center align-items-center w-100 h-25"
+            >
+              <button id="btnPlaceOrder" class="btn btn-primary pl-5 pr-5 pt-2 pb-2" style="letter-spacing: 5px;">PLACE ORDER !</button>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="notification-container">
+    <section class="w-100 d-flex bg-primary align-items-center justify-content-between" style="border-radius: 20px 20px 0 0;height: 35%;">
+      <h5 class="ml-3 text-light">Notification</h5>
+      <img class="mr-4" src="./assets/notification.png" width="6%">
+    </section>
+    <section class="w-100 d-flex align-items-center justify-content-center text-dark" style="border-radius: 0px 0px 20px 20px;height: 65%;">
+      <h5 id="notificationContent">Have a nice day Cashier !!!</h5 id="notificationContent">
+    </section>
+  </div>
+</body>
+  <footer
+    class="d-flex justify-content-center align-items-center text-white"
+    style="height: 10.6vh"
+  >
+    <h5>All rights reserved</h5>
+  </footer>
+
+  <!-- controllers -->
+  <script src="./controller/customerController.js"></script>
+  <script src="./controller/dashBoardController.js"></script>
+  <script src="./controller/itemController.js"></script>
+  <script src="./controller/orderController.js"></script>
+  <script src="./controller/notificationController.js"></script>
+  
+  <!-- DB -->
+  <script src="./DB/DB.js"></script>
+
+  <!-- DTO -->
+  <script src="./model/CustomerDTO.js"></script>
+  <script src="./model/ItemDTO.js"></script>
+  <script src="./model/OrderDTO.js"></script>
+</html>

@@ -1,0 +1,54 @@
+@keyframes midMainTopicAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+
+  50% {
+    transform: translateX(120px);
+  }
+
+  100% {
+    text-shadow: 5px 10px 1px black;
+  }
+}
+
+@keyframes midSubTopicAnimation {
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes customerIMGAnimation {
+  to {
+    width: 25%;
+    height: 25%;
+  }
+}
+
+@keyframes itemIMGAnimation {
+  to {
+    width: 25%;
+    height: 25%;
+  }
+}
+@keyframes orderIMGAnimation {
+  to {
+    width: 25%;
+    height: 25%;
+  }
+}
+
+@keyframes notificationAnime {
+  10% {
+    transform: translateY(-170px);
+  }
+
+  78% {
+    transform: translateY(-170px);
+  }
+
+  100% {
+    transform: translateY(170px);
+  }
+}
